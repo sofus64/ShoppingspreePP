@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ShoppingspreePP
+﻿namespace solo_test
 {
     internal abstract class InventoryItem
     {
+        private int _id;
         private string _name;
         private int _count;
         private int _price;
 
-        public InventoryItem(string name, int count, int price)
+        public InventoryItem(int id, string name, int count, int price)
         {
+            _id = id;
             _name = name;
             _count = count;
             _price = price;
@@ -21,6 +17,10 @@ namespace ShoppingspreePP
 
         public abstract void ShowInfo();
 
+        public int GetId()
+        {
+            return _id;
+        }
         public int GetPrice()
         {
             return _price;
