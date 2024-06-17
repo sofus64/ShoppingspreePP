@@ -1,4 +1,4 @@
-﻿using solo_test;
+﻿using ShoppingspreePP;
 
 var app = new App();
 app.Run();

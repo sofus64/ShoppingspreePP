@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ShoppingspreePP
 {
-    public interface ISellable
+    internal class Stock
     {
-        decimal CalculatePrice(int discount);
+        private List<InventoryItem> _items;
     }
 }
