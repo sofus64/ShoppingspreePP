@@ -1,17 +1,17 @@
 ﻿namespace solo_test
 {
-    internal class ShoppingCart
+    internal class ShopStock
     {
         public List<InventoryItem> _items { get; set; }
         public void AddItem(InventoryItem item, int amount)
         {
-            var cartItem = FindItem(item);
-            cartItem.IncreaseStock(amount);
+            var stockItem = FindItem(item);
+            stockItem.IncreaseStock(amount);
         }
         public void RemoveItem(InventoryItem item, int amount)
         {
-            var cartItem = FindItem(item);
-            cartItem.ReduceStock(amount);
+            var stockItem = FindItem(item);
+            stockItem.ReduceStock(amount);
         }
 
         private InventoryItem FindItem(InventoryItem item)
