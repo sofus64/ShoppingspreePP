@@ -8,22 +8,15 @@ namespace ShoppingspreePP
 {
     internal class ShoppingCart
     {
-        public List<InventoryItem> _items { get; set; }
+        private List<InventoryItem> _items;
         public void AddItem(InventoryItem item, int amount)
         {
-            var cartItem = FindItem(item);
-            cartItem.IncreaseStock(amount);
+            item.SetCount(amount);
+            _items.Add(item);
         }
         public void RemoveItem(InventoryItem item, int amount)
         {
-            var cartItem = FindItem(item);
-            cartItem.ReduceStock(amount);
-        }
-
-        private InventoryItem FindItem(InventoryItem item)
-        {
-            var newItem = _items.Find(x => x.GetId() == item.GetId());
-            return newItem;
+            _items.Remove(item);
         }
     }
 }

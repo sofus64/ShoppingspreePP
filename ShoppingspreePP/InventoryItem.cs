@@ -8,14 +8,12 @@ namespace ShoppingspreePP
 {
     internal abstract class InventoryItem
     {
-        private int _id;
         private string _name;
         private int _count;
         private int _price;
 
-        public InventoryItem(int id, string name, int count, int price)
+        public InventoryItem(string name, int count, int price)
         {
-            _id = id;
             _name = name;
             _count = count;
             _price = price;
@@ -23,10 +21,6 @@ namespace ShoppingspreePP
 
         public abstract void ShowInfo();
 
-        public int GetId()
-        {
-            return _id;
-        }
         public int GetPrice()
         {
             return _price;
