@@ -8,32 +8,35 @@ namespace ShoppingspreePP
 {
     internal class App
     {
+        private readonly ShopStock _stock = new();
+        private readonly ShoppingCart _shoppingCart = new();
         public void Run()
         {
-            int discount = 30;
-
-            var itemsInStock = new Stock();
-
-            var shoppingCart = new ShoppingCart();
-
+            CreateStock();
         }
 
-        public List<InventoryItem> CreateItems()
+        public void CreateStock()
         {
             List<InventoryItem> itemList =
             [
-                new ClothingItem("T-skjorte", 5, 299, "large", "pink"),
-                new ClothingItem("Hoodie", 16, 499, "small", "yellow"),
-                new ElectronicItem("Acer laptop", 10, 9999, 240, "3 year warranty")
+                new ClothingItem(0, "T-skjorte", 5, 299, "large", "pink"),
+                new ClothingItem(1, "Hoodie", 16, 499, "small", "yellow"),
+                new ElectronicItem(2, "Acer laptop", 10, 9999, 240, "3 year warranty")
             ];
 
-            return itemList;
+            _stock._items = itemList;
         }
 
-        public void BuyItem(InventoryItem item, int amount)
+        public void AddToCart(InventoryItem item, int amount)
         {
-            // shoppingCart.AddItem(item, amount)
-            // itemsInStock.RemoveItem(item, amount)
+            _stock.RemoveItem(item, amount);
+            _shoppingCart.AddItem(item, amount);
+        }
+
+        public void RemoveFromCart(InventoryItem item, int amount)
+        {
+            _stock.AddItem(item, amount);
+            _shoppingCart.RemoveItem(item, amount);
         }
     }
 }
